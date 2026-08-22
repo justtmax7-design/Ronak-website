@@ -135,6 +135,37 @@
         float: none;
       }
     }
+    .header button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  background: white;
+  color: #1abc9c;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.header button:hover {
+  background: #333;
+  color: white;
+}
+.skill {
+  background: #1abc9c;
+  color: white;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.skill:hover {
+  background: #159a80;
+  transform: scale(1.03);
+}
+
   </style>
 </head>
 
@@ -142,9 +173,11 @@
 
   <!-- Header -->
   <div class="header">
-    <h1>My Website</h1>
-    <p>My first login system</p>
-  </div>
+  <h1>Hi, I'm Ronak 👋</h1>
+  <p>Web Development Learner | HTML • CSS • JavaScript</p>
+  <button onclick="showHome()">Explore My Website</button>
+</div>
+
 
   <!-- Navigation -->
   <div class="navbar">
@@ -186,9 +219,20 @@
     <div class="row">
 
       <div class="side">
-        <h2>About Me</h2>
-        <p>Welcome to my website.</p>
-      </div>
+  <h2>👨‍💻 About Me</h2>
+
+  <p>
+    Hello! I'm Ronak. I'm learning web development
+    and building my own websites.
+  </p>
+
+  <h3>My Skills</h3>
+
+  <div class="skill">HTML</div>
+  <div class="skill">CSS</div>
+  <div class="skill">JavaScript</div>
+</div>
+
 
       <div class="main">
         <h2>Home</h2>
