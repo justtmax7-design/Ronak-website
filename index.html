@@ -396,9 +396,7 @@
 
 
   <script>
-
-    // Login function
-    function login() {
+// Login function
 function login() {
 
   let username = document.getElementById("username").value;
@@ -431,7 +429,7 @@ function login() {
     // Logout button show
     document.getElementById("logoutButton").style.display = "block";
 
-    // Error message clear
+    // Message clear
     document.getElementById("message").innerText = "";
 
   } else {
@@ -443,32 +441,36 @@ function login() {
 }
 
 
-    // Login page show karna
-    function showLogin() {
+// Login page
+function showLogin() {
 
-      document.getElementById("loginPage").style.display = "block";
-      document.getElementById("homePage").style.display = "none";
+  document.getElementById("loginPage").style.display = "block";
+  document.getElementById("homePage").style.display = "none";
 
-    }
-
-
-    // Home page show karna
-    function showHome() {
-
-      document.getElementById("loginPage").style.display = "none";
-      document.getElementById("homePage").style.display = "block";
-
-    }
-function toggleDarkMode() {
-  document.body.classList.toggle("dark-mode");
 }
 
 
-    // Logout function
-    function logout() {
+// Home page
+function showHome() {
+
+  document.getElementById("loginPage").style.display = "none";
+  document.getElementById("homePage").style.display = "block";
+
+}
+
+
+// Dark Mode
+function toggleDarkMode() {
+
+  document.body.classList.toggle("dark-mode");
+
+}
+
+
+// Logout
 function logout() {
 
-  // Login save remove
+  // Saved login remove
   localStorage.removeItem("loggedInUser");
 
   // Home hide
@@ -486,8 +488,11 @@ function logout() {
   // Input clear
   document.getElementById("username").value = "";
   document.getElementById("password").value = "";
+
 }
-// Page load hone par saved login check
+
+
+// Page load par saved login check
 let savedUser = localStorage.getItem("loggedInUser");
 
 if (savedUser) {
@@ -502,6 +507,7 @@ if (savedUser) {
   document.querySelector(".navbar a.right").style.display = "none";
 
   document.getElementById("logoutButton").style.display = "block";
+
 }
 
   </script>
