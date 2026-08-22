@@ -399,45 +399,48 @@
 
     // Login function
     function login() {
+function login() {
 
-      // Input se value lena
-      let username = document.getElementById("username").value;
-      let password = document.getElementById("password").value;
+  let username = document.getElementById("username").value;
+  let password = document.getElementById("password").value;
 
-      // Demo username aur password
-      let correctUsername = "admin";
-      let correctPassword = "1234";
+  let correctUsername = "admin";
+  let correctPassword = "1234";
 
-      // Username aur password check karna
-      if (
-        username === correctUsername &&
-        password === correctPassword
-      ) {
+  if (
+    username === correctUsername &&
+    password === correctPassword
+  ) {
 
-        // Login page hide
-        document.getElementById("loginPage").style.display = "none";
+    // Login save
+    localStorage.setItem("loggedInUser", username);
 
-        // Home page show
-        document.getElementById("homePage").style.display = "block";
+    // Login page hide
+    document.getElementById("loginPage").style.display = "none";
 
-        // Welcome message
-        document.getElementById("welcomeMessage").innerText =
-          "Welcome, " + username + "!";
+    // Home page show
+    document.getElementById("homePage").style.display = "block";
 
-        // Login button hide
-        document.querySelector(".navbar a.right").style.display = "none";
+    // Welcome message
+    document.getElementById("welcomeMessage").innerText =
+      "Welcome, " + username + "!";
 
-        // Logout button show
-        document.getElementById("logoutButton").style.display = "block";
+    // Login button hide
+    document.querySelector(".navbar a.right").style.display = "none";
 
-      } else {
+    // Logout button show
+    document.getElementById("logoutButton").style.display = "block";
 
-        // Galat login
-        document.getElementById("message").innerText =
-          "Wrong username or password!";
+    // Error message clear
+    document.getElementById("message").innerText = "";
 
-      }
-    }
+  } else {
+
+    document.getElementById("message").innerText =
+      "Wrong username or password!";
+
+  }
+}
 
 
     // Login page show karna
@@ -463,24 +466,43 @@ function toggleDarkMode() {
 
     // Logout function
     function logout() {
+function logout() {
 
-      // Home hide
-      document.getElementById("homePage").style.display = "none";
+  // Login save remove
+  localStorage.removeItem("loggedInUser");
 
-      // Login show
-      document.getElementById("loginPage").style.display = "block";
+  // Home hide
+  document.getElementById("homePage").style.display = "none";
 
-      // Login button show
-      document.querySelector(".navbar a.right").style.display = "block";
+  // Login show
+  document.getElementById("loginPage").style.display = "block";
 
-      // Logout button hide
-      document.getElementById("logoutButton").style.display = "none";
+  // Login button show
+  document.querySelector(".navbar a.right").style.display = "block";
 
-      // Input clear
-      document.getElementById("username").value = "";
-      document.getElementById("password").value = "";
+  // Logout button hide
+  document.getElementById("logoutButton").style.display = "none";
 
-    }
+  // Input clear
+  document.getElementById("username").value = "";
+  document.getElementById("password").value = "";
+}
+// Page load hone par saved login check
+let savedUser = localStorage.getItem("loggedInUser");
+
+if (savedUser) {
+
+  document.getElementById("loginPage").style.display = "none";
+
+  document.getElementById("homePage").style.display = "block";
+
+  document.getElementById("welcomeMessage").innerText =
+    "Welcome back, " + savedUser + "!";
+
+  document.querySelector(".navbar a.right").style.display = "none";
+
+  document.getElementById("logoutButton").style.display = "block";
+}
 
   </script>
 </body>
