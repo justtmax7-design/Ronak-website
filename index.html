@@ -536,227 +536,146 @@
 
   <script>
 
+// LOGIN
+function login() {
 
-    // Login
+  let username = document.getElementById("username").value;
+  let password = document.getElementById("password").value;
 
-    function login() {
+  let correctUsername = "admin";
+  let correctPassword = "1234";
 
-      let username =
-        document.getElementById("username").value;
+  if (
+    username === correctUsername &&
+    password === correctPassword
+  ) {
 
-      let password =
-        document.getElementById("password").value;
+    localStorage.setItem("loggedInUser", username);
 
-      let correctUsername = "admin";
-      let correctPassword = "1234";
+    document.getElementById("loginPage").style.display = "none";
+    document.getElementById("homePage").style.display = "block";
 
+    document.getElementById("welcomeMessage").innerText =
+      "Welcome, " + username + "!";
 
-      if (
-        username === correctUsername &&
-        password === correctPassword
-      ) {
+    document.getElementById("loginButton").style.display = "none";
+    document.getElementById("logoutButton").style.display = "block";
 
-        localStorage.setItem(
-          "loggedInUser",
-          username
-        );
+    document.getElementById("message").innerText = "";
 
+  } else {
 
-        document.getElementById(
-          "loginPage"
-        ).style.display = "none";
+    document.getElementById("message").innerText =
+      "Wrong username or password!";
 
+  }
+}
 
-        document.getElementById(
-          "homePage"
-        ).style.display = "block";
 
+// HOME
+function showHome() {
 
-        document.getElementById(
-          "welcomeMessage"
-        ).innerText =
-          "Welcome, " + username + "!";
+  document.getElementById("loginPage").style.display = "none";
+  document.getElementById("homePage").style.display = "block";
 
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
 
-        document.getElementById(
-          "loginButton"
-        ).style.display = "none";
+}
 
 
-        document.getElementById(
-          "logoutButton"
-        ).style.display = "block";
+// LOGIN PAGE
+function showLogin() {
 
+  document.getElementById("loginPage").style.display = "block";
+  document.getElementById("homePage").style.display = "none";
 
-        document.getElementById(
-          "message"
-        ).innerText = "";
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
 
+}
 
-      } else {
 
-        document.getElementById(
-          "message"
-        ).innerText =
-          "Wrong username or password!";
+// ABOUT
+function showAbout() {
 
-      }
+  document.getElementById("loginPage").style.display = "none";
+  document.getElementById("homePage").style.display = "block";
 
-    }
+  setTimeout(function() {
 
+    document.getElementById("aboutSection").scrollIntoView({
+      behavior: "smooth"
+    });
 
-    // Show Login
+  }, 100);
 
-    function showLogin() {
+}
 
-      document.getElementById(
-        "loginPage"
-      ).style.display = "block";
 
+// CONTACT
+function showContact() {
 
-      document.getElementById(
-        "homePage"
-      ).style.display = "none";
+  document.getElementById("loginPage").style.display = "none";
+  document.getElementById("homePage").style.display = "block";
 
-    }
+  setTimeout(function() {
 
+    document.getElementById("contactSection").scrollIntoView({
+      behavior: "smooth"
+    });
 
-    // Show Home
+  }, 100);
 
-    function showHome() {
+}
 
-      document.getElementById(
-        "loginPage"
-      ).style.display = "none";
 
+// DARK MODE
+function toggleDarkMode() {
 
-      document.getElementById(
-        "homePage"
-      ).style.display = "block";
+  document.body.classList.toggle("dark-mode");
 
-    }
+}
 
 
-    // Show About
+// LOGOUT
+function logout() {
 
-    function showAbout() {
+  localStorage.removeItem("loggedInUser");
 
-      showHome();
+  document.getElementById("homePage").style.display = "none";
+  document.getElementById("loginPage").style.display = "block";
 
+  document.getElementById("loginButton").style.display = "block";
+  document.getElementById("logoutButton").style.display = "none";
 
-      document.getElementById(
-        "aboutSection"
-      ).scrollIntoView({
-        behavior: "smooth"
-      });
+  document.getElementById("username").value = "";
+  document.getElementById("password").value = "";
 
-    }
+  document.getElementById("message").innerText = "";
 
+}
 
-    // Show Contact
 
-    function showContact() {
+// CHECK SAVED LOGIN
+let savedUser = localStorage.getItem("loggedInUser");
 
-      showHome();
+if (savedUser) {
 
+  document.getElementById("loginPage").style.display = "none";
+  document.getElementById("homePage").style.display = "block";
 
-      document.getElementById(
-        "contactSection"
-      ).scrollIntoView({
-        behavior: "smooth"
-      });
+  document.getElementById("welcomeMessage").innerText =
+    "Welcome back, " + savedUser + "!";
 
-    }
+  document.getElementById("loginButton").style.display = "none";
+  document.getElementById("logoutButton").style.display = "block";
 
-
-    // Dark Mode
-
-    function toggleDarkMode() {
-
-      document.body.classList.toggle(
-        "dark-mode"
-      );
-
-    }
-
-
-    // Logout
-
-    function logout() {
-
-      localStorage.removeItem(
-        "loggedInUser"
-      );
-
-
-      document.getElementById(
-        "homePage"
-      ).style.display = "none";
-
-
-      document.getElementById(
-        "loginPage"
-      ).style.display = "block";
-
-
-      document.getElementById(
-        "loginButton"
-      ).style.display = "block";
-
-
-      document.getElementById(
-        "logoutButton"
-      ).style.display = "none";
-
-
-      document.getElementById(
-        "username"
-      ).value = "";
-
-
-      document.getElementById(
-        "password"
-      ).value = "";
-
-    }
-
-
-    // Check saved login
-
-    let savedUser =
-      localStorage.getItem(
-        "loggedInUser"
-      );
-
-
-    if (savedUser) {
-
-      document.getElementById(
-        "loginPage"
-      ).style.display = "none";
-
-
-      document.getElementById(
-        "homePage"
-      ).style.display = "block";
-
-
-      document.getElementById(
-        "welcomeMessage"
-      ).innerText =
-        "Welcome back, " + savedUser + "!";
-
-
-      document.getElementById(
-        "loginButton"
-      ).style.display = "none";
-
-
-      document.getElementById(
-        "logoutButton"
-      ).style.display = "block";
-
-    }
+}
 
 
   </script>
