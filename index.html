@@ -165,6 +165,32 @@
   background: #159a80;
   transform: scale(1.03);
 }
+.project-card {
+  background: #f1f1f1;
+  padding: 25px;
+  margin-top: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.project-card h3 {
+  color: #1abc9c;
+  font-size: 24px;
+}
+
+.project-card button {
+  padding: 10px 20px;
+  background: #1abc9c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.project-card button:hover {
+  background: #159a80;
+}
 
   </style>
 </head>
@@ -234,17 +260,21 @@
 </div>
 
 
-      <div class="main">
-        <h2>Home</h2>
+     <div class="main">
+  <h2>🚀 My Projects</h2>
 
-        <p id="welcomeMessage">
-          Welcome!
-        </p>
+  <div class="project-card">
+    <h3>🔐 Login System</h3>
 
-        <p>
-          You have successfully logged in.
-        </p>
-      </div>
+    <p>
+      My first web development project using
+      HTML, CSS and JavaScript.
+    </p>
+
+    <button onclick="showLogin()">View Project</button>
+  </div>
+</div>
+
 
     </div>
 
